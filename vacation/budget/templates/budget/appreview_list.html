@@ -1,0 +1,23 @@
+{% extends 'budget/base.html' %}
+
+{% block content %}
+<div class='container'>
+    <h1> App Reviews </h1>
+
+    <ul>
+{% for review in object_list %}
+    <li>{{review}}</li>
+        <ul>
+            <li> Review: {{review.feedback}} </li>
+            <li><a class="btn btn-light"  href="/budget/appreview_update_form/{{review.id}}" role="button"> Update Review </a></li>
+            <li><a class="btn btn-light" href="/budget/delete_review/{{review.id}}" role="button"> Delete Review </a></li>
+        </ul>
+{% endfor %}
+    </ul>
+    <br>
+    <a class="btn btn-primary" href="{% url 'budget:app_review' %}" role="button"> Write a Review </a>
+    <br>
+        <a class="btn btn-primary" href="{% url 'budget:index' %}" role="button"> Return to Home Page </a>
+</ul>
+</div>
+{% endblock content %}

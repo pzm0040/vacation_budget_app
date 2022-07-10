@@ -1,0 +1,10 @@
+{% extends 'budget/base.html' %}
+{% block title %} App Review Form{% endblock title %}
+{% block content %}
+<h1>App Review Form</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Submit">
+</form>
+{% endblock content %}

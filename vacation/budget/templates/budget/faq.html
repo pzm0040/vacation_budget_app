@@ -1,0 +1,128 @@
+{% extends 'budget/base.html' %}
+{% block title %} User Guide {% endblock title %}
+
+{% block content %}
+
+
+<h1> User Guide </h1>
+<div class="container">
+    <div class="accordion">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Create a Vacation Budget
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <ul>
+                  <li>To create a vacation budget, you must first create an account.  Once you are logged in,
+                  select the ‘Create a Vacation Budget’ button on the home page.  </li>
+                  <li>Enter all relevant information into the text fields.
+                  If you enter an invalid value, you will not be able to submit the vacation budget form.
+                  Examples of invalid values include vacation dates in the past and negative dollar amounts for costs. </li>
+                  <li>If you do not know a cost yet, submit the default dollar amount of 0 in any of the expense fields.
+                  You will be able to modify your budget later to update expenses.</li>
+                  <li>When you are finished just click ‘Submit’.
+                  You will be taken to a list of Vacations where you will have the option to view budget details, modify vacation, or delete the vacation.</li>
+                </ul>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    My Budget Home
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <p>This is the landing page where you can view all your planned vacations.</p>
+                  <ul>
+                    <li><b>Vacation Budget:</b>
+                      This will show your calculated vacation budget (see Vacation Budget Detail Page below).</li>
+                    <li><b>Modify Vacation:</b>
+                      Use this page to update any part of your vacation budget.
+                      This could include your vacation date or projected expenses. </li>
+                    <li><b>Delete Vacation</b>
+                      This will delete your Vacation Budget.
+                      Please be aware that a deleted budget cannot be re-activated. </li>
+                  </ul>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Vacation Budget Detail
+                </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <p>This page calculates everything needed for your vacation budget. Navigate to this page by selecting the ‘Vacation Budget’ icon from ‘My Budget Home’.</p>
+                    <ul>
+                      <li>Vacation Details</li>
+                      <ul>
+                        <li><b>Countdown:</b> Number of days/months until your vacation.</li>
+                        <li><b>Duration of Trip:</b> Number of days on vacation.  Keep this in mind for daily expense projections.</li>
+                      </ul>
+                      <li>Vacation Expenses</li>
+                      <ul>
+                        <li><b>Total Flight Cost:</b> This can either be the total amount submitted in the form or the total amount submitted multiplied by the
+                          ‘Number in Party’ if the option is selected.</li>
+                        <li><b>Total Hotel Cost:</b> This can either be the total amount submitted in the form or the total amount submitted multiplied by the
+                          duration of trip (days) if the ‘Hotel per day’ option is selected.</li>
+                        <li><b>Total Food Cost:</b> This can either be the total amount submitted in the form or the total amount submitted multiplied by
+                          ‘Number in Party’ and duration of trip (days)  if the ‘Food per Person per Day’’ option is selected.</li>
+                        <li><b>Total Activity Cost:</b> This can either be the total amount submitted in the form or the total amount submitted multiplied by ‘Number in Party’
+                          and duration of trip (days)  if the ‘Food per Person per Day’’ option is selected.</li>
+                        <li><b>Total Vacation Cost:</b> This will total all sections mentioned above for ‘Vacation Expenses’</li>
+                      </ul>
+                      <li>Savings Goal</li>
+                      <ul>
+                        <li><b>Monthly Savings Required:</b> This takes your total projected vacation cost and divides it by the number of months remaining before your vacation.
+                          This amount should be saved each month to reach your savings goal. <strong>Vacations are more fun when you are debt free! </strong>
+                          We recommend setting up automated transfers to your savings account in this amount.
+                          You can then reimburse yourself from savings for expenses as you pay for them.</li>
+                      </ul>
+                      <li>Total Savings</li>
+                      <ul>
+                        <li><b>Total Savings: </b>  This can be adjusted by clicking ‘Modify Vacation’ in ‘My Budget Home Page’.
+                          This should reflect the total amount you’ve saved for your vacation.</li>
+                        <li><b>Savings Progress: </b> This divides your ‘Total Savings’ by the ‘Total Vacation Cost’.
+                          The goal is to be at 100% by the time you leave for vacation.</li>
+                      </ul>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    Review App
+                </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <p>Please leave us constructive feedback to improve our app!</p>
+                  <ul>
+                    <li><b>Vacation Budget:</b>
+                      Leave us a short review.  All feedback will be reviewed.</li>
+                    <li><b>Rating:</b>
+                      Select a number 1-5 to let us know how we're doing.  5=Best </li>
+                  </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

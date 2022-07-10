@@ -1,0 +1,21 @@
+{% extends 'budget/base.html' %}
+{% block title %} App Review {% endblock title %}
+
+{% block content %}
+<div class="container myform">
+  <h1> App Review</h1>
+  <form method = "POST">
+      {% csrf_token %}
+      {% for field in form %}
+      <div class='form-control'>
+          {{field.label_tag}}
+        </div>
+        {{field}}
+        {{field.errors}}
+      {% endfor %}
+      <input class="btn btn-primary btn-sm" type="submit" value="Submit">
+  </form>
+  <br>
+<a class="btn btn-primary" href="{% url 'budget:index' %}" role="button"> Home </a>
+</div>
+{% endblock content %}

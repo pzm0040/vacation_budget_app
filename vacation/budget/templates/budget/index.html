@@ -1,0 +1,73 @@
+{% extends 'budget/base.html' %}
+{% block title %} Home Page {% endblock title %}
+{% block content %}
+<div class='container'>
+    <h1 class="display-3" style="text-align:center;"> Start Planning Your Dream Vacation Today! </h1>
+{% if user.is_authenticated %}
+    <p class="h4"> Hello, {{user.get_username}}!</p>
+    <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body" style="text-align:center;">
+            <p class="card-text">You are logged in.</p>
+            <a href="{% url 'logout' %}?next={{request.path}}" class="btn btn-primary">Log Out Here</a>
+          </div>
+        </div>
+      </div>
+    <br>
+    <a class="btn btn-primary" href="{% url 'budget:vacation_expense' %}" role="button"> Create a Vacation Budget</a>
+    <a class="btn btn-primary" href="{% url 'budget:vacation_list' %}" role="button"> My Budget Home</a>
+    <a class="btn btn-primary" href="{% url 'budget:app_review' %}" role="button"> Write a Review </a>
+{% else %}
+<div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body" style="text-align:center;">
+          <p class="card-text">You are not logged in.</p>
+          <a href="{% url 'login' %}?next={{request.path}}" class="btn btn-primary">Log In Here</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body" style="text-align:center;">
+          <p class="card-text">New User? </p>
+          <a href="{% url 'budget:signup' %}"  class="btn btn-primary">Create Account </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+      <div class="card">
+        <div class="card-body" style="text-align:center;">
+          <p class="card-text">Need More Information? </p>
+          <a href="{% url 'budget:faq' %}"  class="btn btn-primary">FAQ</a>
+        </div>
+      </div>
+{% endif %}
+<br>
+<figure class="text-center">
+    <h3>How do you budget for a vacation?</h3>
+        <p>
+        <i class="fa-solid fa-file-excel"></i> Do you create a spreadsheet? <br>
+        <i class="fa-solid fa-clover"></i> Do you just book a trip and hope you have enough money saved?  <br>
+        <i class="fa-solid fa-umbrella-beach"></i> The Vacation Budget Application looks to simplify your vacation planning by easily tracking your expenses and calculating how much you need to save. 
+    <strong>The end goal is to pay for your vacation in cash. </strong>No debt, just relaxing vacations. <i class="fa-solid fa-champagne-glasses"></i></p>
+</figure>
+<figure class="text-center">
+    <h3>Are your vacation plans flexible?</h3>
+        <p>
+            <i class="fa-solid fa-file-pen"></i> Modify your Vacation Budget to put in different expenses and plan a vacation that meets 
+            <strong>your budget.</strong><br>
+            <i class="fa-solid fa-calendar-week"></i> Are flights cheaper the week before?  Or a week later? <br>
+            <i class="fa-solid fa-location-dot"></i> How about a different location? <br>
+        <i class="fa-solid fa-umbrella-beach"></i> Search for travel on your favorite sites and just update the expense line item! </p>
+</figure>
+<div class="card">
+  <div class="card-body" style="text-align:center;">
+    <p class="card-text"><i class="fa-solid fa-play"></i> Creating your first vacation budget is easy!</p>
+    {% load static %}
+    <img src="{% static 'budget/vba_flow.png' %}" class="img-fluid" alt="Responsive VB Flow">
+  </div>
+</div>
+</div>
+{% endblock content %}

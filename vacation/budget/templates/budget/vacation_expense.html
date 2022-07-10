@@ -1,0 +1,26 @@
+{% extends 'budget/base.html' %}
+{% block title %} Vacation {% endblock title %}
+
+{% block content %}
+
+  <h1> Vacation Expense</h1>
+  <form method = "POST">
+    <div class="form-group">
+      {% csrf_token %}
+      {% for field in form %}
+      <div class="form-group">
+          {{field.label_tag}}
+        
+        {{field}}
+        {{field.errors}}
+      </div>
+      {% endfor %}
+      <br>
+      <input class="btn btn-primary btn-sm" type="submit" value="Submit">
+    </div>
+  </form>
+  <br>
+
+<a class="btn btn-primary" href="{% url 'budget:index' %}" role="button"> Home </a>
+
+{% endblock content %}

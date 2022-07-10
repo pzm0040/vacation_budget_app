@@ -1,0 +1,29 @@
+{% comment %} Check for errors (incorrect username/password) {% endcomment %}
+{% if form.errors %}
+    <p> Your username or password was incorrect. Try again.</p>
+{% endif %}
+
+{% if next %}
+    {% if user.is_authenticated %}
+    {% comment %} User Logged In but NO Access to that site {% endcomment %}
+    <p> You don't have permission to this site. </p>
+    {% else %}
+{% comment %} User NOT Logged In {% endcomment %}
+    <p> Please login to see this page. </p>
+    {% endif %}
+{% endif %}
+{% comment %} Form Loging {% endcomment %}
+<div class="container">
+<form method='post' action="{% url 'login' %}">
+    {% csrf_token %}
+    {{form.username.label_tag}}
+    {{form.username}}
+    <br>
+
+    {{form.password.label_tag}}
+    {{form.password}}
+    <br>
+    <input type="submit" value='Login'>
+    <input type="hidden" name='next' value="{{next}}">
+</form>
+<div>

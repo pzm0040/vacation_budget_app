@@ -1,0 +1,14 @@
+{% extends 'budget/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2> Edit Vacation </h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input class="btn btn-primary" type="submit" value="Submit">
+</form>
+<br>
+<a class="btn btn-primary" href="{% url 'budget:vacation_list' %}" role="button"> Back </a>
+</div>
+{% endblock content %}

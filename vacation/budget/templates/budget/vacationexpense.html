@@ -1,0 +1,22 @@
+{% extends 'budget/base.html' %}
+{% block title %} Vacation Expense{% endblock title %}
+
+{% block content %}
+<div class="container myform">
+  <h1> Vacation Expense</h1>
+  <form method = "POST">
+      {% csrf_token %}
+      {% for field in form %}
+      <div class='form-control'>
+          {{field.label_tag}}
+        </div>
+        {{field}}
+        {{field.errors}}
+      
+      {% endfor %}
+
+      <input type="submit">
+
+  </form>
+</div>
+{% endblock content %}

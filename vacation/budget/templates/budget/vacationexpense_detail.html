@@ -1,0 +1,41 @@
+{% extends 'budget/base.html' %}
+{% block title %} Vacation Details {% endblock title %}
+{% block content %}
+
+<div class="container">  
+<h1 style="text-align:center;"> {{vacationexpense}}</h1>
+<ul class="list-group">
+    <li class="list-group-item active" aria-current="true" style="text-align:center;"><b> Vacation Details </b></li>
+
+    <li class="list-group-item" style="text-align:center;"> Countdown (days): {{vacationexpense.countdown}}</li>
+    <li class="list-group-item" style="text-align:center;"> Countdown (months): {{vacationexpense.number_months}}</li>
+    <li class="list-group-item" style="text-align:center;"> Duration of Trip (days): {{vacationexpense.number_days}}</li>
+</ul>
+<br>
+<ul class="list-group">
+    <li class="list-group-item active" aria-current="true" style="text-align:center;"><b> Vacation Expenses </b></li>
+    <li class="list-group-item" style="text-align:center;"><i class="fa-solid fa-plane-departure"></i>: ${{vacationexpense.total_flight}}</li>
+    <li class="list-group-item" style="text-align:center;"><i class="fa-solid fa-hotel"></i>: ${{vacationexpense.total_hotel}} </li>
+    <li class="list-group-item" style="text-align:center;"><i class="fa-solid fa-burger"></i>: ${{vacationexpense.total_food}}</li>
+    <li class="list-group-item" style="text-align:center;"><i class="fa-solid fa-ticket"></i>: ${{vacationexpense.total_activity}}</li>
+    <li class="list-group-item" style="text-align:center;"><strong> Total Vacation Cost: ${{vacationexpense.total_vacation_cost}}</strong></li>
+</ul>
+<br> 
+<ul class="list-group">
+    <li class="list-group-item active" aria-current="true" style="text-align:center;"> <b> Savings Goal </b></li>
+    <li class="list-group-item" style="text-align:center;"> Total Vacation Cost: ${{vacationexpense.total_vacation_cost}}</li>
+    <li class="list-group-item" style="text-align:center;"> <strong>Monthly Savings Required: ${{vacationexpense.budget_month}}</strong></li>
+</ul>
+<br>
+<ul class="list-group">
+    <li class="list-group-item active" aria-current="true" style="text-align:center;"> <b> Total Savings </b></li>
+    <li class="list-group-item" style="text-align:center;"> <i class="fa-solid fa-piggy-bank"></i> ${{vacationexpense.savings_round}}</li>
+    <li class="list-group-item" style="text-align:center;"> <strong> Savings Progress: {{vacationexpense.savings_progress}}%</strong></li>
+</ul>
+
+<br>
+
+<a class="btn btn-primary" href="{% url 'budget:vacation_list' %}" role="button"> Vacation List</a>
+<a class="btn btn-primary" href="{% url 'budget:index' %}" role="button"> Return to Home Page</a>
+</div>
+{% endblock content %}

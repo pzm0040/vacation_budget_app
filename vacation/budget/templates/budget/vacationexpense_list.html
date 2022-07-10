@@ -1,0 +1,16 @@
+{% extends 'budget/base.html' %}
+
+{% block content %}
+<div class="container">
+<h1> Your Vacation List </h1>
+    <div class="list-group">
+{% for vac in object_list %}
+            <h3 style="text-align:center;"> {{vac}} - {{vac.vacation_start}} <i class="fa-solid fa-plane-departure"></i></h3>
+            <a class="list-group-item list-group-item-action active" aria-current="true"  style="text-align:center;" href="/budget/vacationexpense_detail/{{vac.id}}"> Vacation Budget</a>
+            <a class="list-group-item list-group-item-action"  style="text-align:center;" href="/budget/vacationexpense_update_form/{{vac.id}}"> Modify Vacation </a>
+            <a class="list-group-item list-group-item-action" style="text-align:center;" href="/budget/delete_vacation/{{vac.id}}"> Delete Vacation </a>
+{% endfor %}
+    </div>
+    <a class="btn btn-primary" href="{% url 'budget:vacation_expense' %}" role="button"> Create a Vacation Budget</a>
+</div>
+{% endblock content %}
